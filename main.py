@@ -98,16 +98,9 @@ def start_command(message) :
 
     if id in save :
         del save[id]
-
-    keyboard = telebot.types.InlineKeyboardMarkup();
-
-    keyboard.add( telebot.types.InlineKeyboardButton("Лол", callback_data='foo') )
-    keyboard.add( telebot.types.InlineKeyboardButton("Не лол", callback_data='start') )
-
-    bot.send_message(id, dialogue[0][1], reply_markup=keyboard )
+        
+    bot.send_message(id, dialogue[0][1])
     save[id] = {}
-
-    bot.set_chat_menu_button()
 
 @bot.message_handler(chat_types=['private'])
 def simple_message(message : telebot.types.Message) :
